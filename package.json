@@ -1,0 +1,22 @@
+{
+  "name": "bwolf.scriptable.ui.events",
+  "version": "0.0.0-preview.1",
+  "description": "This package contains scripts that help users decouple their ui events from scenes.",
+  "displayName": "Scriptable UI Events",
+  "documentationUrl": "ADD DOCUMENTATION",
+  "changelogUrl": "ADD CHANGELOG",
+  "dependencies": {
+  },
+  "author": {
+    "name": "Benjamin",
+    "email": "benjaminvanderwolf@gmail.com",
+    "url": "https://bvanderwolf.github.io"
+  },
+  "bugs": {
+    "url": "ADD JIRA BUG ISSUE"
+  },
+  "samples": [],
+  "type": "sample",
+  "unity": "2019.1",
+  "hideInEditor": false
+}
