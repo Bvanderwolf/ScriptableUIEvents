@@ -4,26 +4,30 @@ using UnityEngine.UI;
 
 namespace BWolf.ScriptableEvents.Dispatchers
 {
+    /// <summary>
+    /// Dispatches events for toggle value changes in an user interface.
+    /// </summary>
     [RequireComponent(typeof(Toggle))]
-
     public class ToggleEventDispatcher : EventDispatcher<bool>
     {
+        /// <summary>
+        /// The toggle to start listening to.
+        /// </summary>
         private Toggle _toggle;
 
-        private void Awake()
-        {
-            _toggle = GetComponent<Toggle>();
-        }
+        /// <summary>
+        /// Sets up reference to the toggle.
+        /// </summary>
+        private void Awake() => _toggle = GetComponent<Toggle>();
 
-        private void OnEnable()
-        {
-            _toggle.onValueChanged.AddListener(Dispatch);
-        }
+        /// <summary>
+        /// Starts listening to the toggle.
+        /// </summary>
+        private void OnEnable() => _toggle.onValueChanged.AddListener(RaiseEvent);
 
-        private void OnDisable()
-        {
-            _toggle.onValueChanged.RemoveListener(Dispatch);
-        }
+        /// <summary>
+        /// Stops listening to the toggle.
+        /// </summary>
+        private void OnDisable() => _toggle.onValueChanged.RemoveListener(RaiseEvent);
     }
-
 }

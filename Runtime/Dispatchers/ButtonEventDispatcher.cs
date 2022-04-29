@@ -4,25 +4,31 @@ using UnityEngine.UI;
 
 namespace BWolf.ScriptableEvents.Dispatchers
 {
+    /// <summary>
+    /// Dispatches events for button clicks in a user interface.
+    /// </summary>
     [RequireComponent(typeof(Button))]
     public class ButtonEventDispatcher : EventDispatcher
     {
-        private Button _toggle;
+        /// <summary>
+        /// The button to listen to.
+        /// </summary>
+        private Button _button;
 
-        private void Awake()
-        {
-            _toggle = GetComponent<Button>();
-        }
+        /// <summary>
+        /// Sets up reference to the button.
+        /// </summary>
+        private void Awake() => _button = GetComponent<Button>();
 
-        private void OnEnable()
-        {
-            _toggle.onClick.AddListener(Dispatch);
-        }
+        /// <summary>
+        /// Starts listening to the button.
+        /// </summary>
+        private void OnEnable() => _button.onClick.AddListener(RaiseEvent);
 
-        private void OnDisable()
-        {
-            _toggle.onClick.RemoveListener(Dispatch);
-        }
+        /// <summary>
+        /// Stops listening to the button.
+        /// </summary>
+        private void OnDisable() => _button.onClick.RemoveListener(RaiseEvent);
     }
 
 }
